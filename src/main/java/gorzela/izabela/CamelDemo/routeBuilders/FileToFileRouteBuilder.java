@@ -1,4 +1,4 @@
-package gorzela.izabela.CamelDemo.routeBuilder;
+package gorzela.izabela.CamelDemo.routeBuilders;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
