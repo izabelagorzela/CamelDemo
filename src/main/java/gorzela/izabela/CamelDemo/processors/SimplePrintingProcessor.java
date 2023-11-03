@@ -5,7 +5,7 @@ import org.apache.camel.Processor;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SampleProcessor implements Processor {
+public class SimplePrintingProcessor implements Processor {
     @Override
     public void process(Exchange exchange) throws Exception {
         System.out.println("The file name: " + exchange.getMessage().getHeader(Exchange.FILE_NAME));
