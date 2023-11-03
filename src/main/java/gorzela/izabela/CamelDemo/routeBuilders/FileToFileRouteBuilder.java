@@ -12,6 +12,8 @@ public class FileToFileRouteBuilder extends RouteBuilder {
     private SampleProcessor sampleProcessor;
     @Override
     public void configure() throws Exception {
-        from("file:sampleDirectory/from").process(sampleProcessor).to("file:sampleDirectory/to");
+        from("file:sampleDirectory/from")
+            .process(sampleProcessor)
+        .to("file:sampleDirectory/to");
     }
 }
