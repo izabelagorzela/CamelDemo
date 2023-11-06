@@ -1,7 +1,7 @@
 package gorzela.izabela.CamelDemo.routeBuilders;
 
-import gorzela.izabela.CamelDemo.processors.FileNameChangingProcessor;
-import gorzela.izabela.CamelDemo.processors.SimplePrintingProcessor;
+import gorzela.izabela.CamelDemo.processors.ExtentionHeaderPrintingProcessor;
+import gorzela.izabela.CamelDemo.processors.ExtentionHeaderSettingProcessor;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,17 +10,16 @@ import org.springframework.stereotype.Component;
 public class FileToFileRouteBuilder extends RouteBuilder {
 
     @Autowired
-    private SimplePrintingProcessor simplePrintingProcessor;
-
+    private ExtentionHeaderSettingProcessor extentionHeaderSettingProcessor;
     @Autowired
-    private FileNameChangingProcessor fileNameChangingProcessor;
+    private ExtentionHeaderPrintingProcessor extentionHeaderPrintingProcessor;
 
     @Override
     public void configure() throws Exception {
         from("file:sampleDirectory/from")
-            .process(simplePrintingProcessor)
-            .process(fileNameChangingProcessor)
-            .process(simplePrintingProcessor)
+            .process(extentionHeaderPrintingProcessor)
+            .process(extentionHeaderSettingProcessor)
+            .process(extentionHeaderPrintingProcessor)
         .to("file:sampleDirectory/to");
     }
 }
